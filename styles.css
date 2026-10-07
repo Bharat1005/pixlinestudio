@@ -1520,20 +1520,26 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #010101;
+  color: #ffffff;
   border: 4px solid #080808;
   box-shadow: 0 10px 25px rgba(31, 195, 10, 0.35);
 }
 
 .story-since-badge span {
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .story-since-badge strong {
-  font-size: 1.35rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.45rem;
   font-weight: 800;
   line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .story-points {
@@ -7203,6 +7209,7 @@ ul {
 }
 
 .tech-tabs-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;

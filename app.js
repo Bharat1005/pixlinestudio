@@ -433,14 +433,10 @@ const techUnderline = document.querySelector('.tech-nav-underline');
 
 function updateTechUnderline() {
   const activeBtn = document.querySelector('.tech-tab-btn.active');
-  const nav = document.querySelector('.tech-tabs-nav');
-  if (activeBtn && techUnderline && nav) {
-    const btnRect = activeBtn.getBoundingClientRect();
-    const navRect = nav.getBoundingClientRect();
-    const left = btnRect.left - navRect.left + nav.scrollLeft;
-    const width = btnRect.width;
-    techUnderline.style.left = `${left}px`;
-    techUnderline.style.width = `${width}px`;
+  const underline = document.querySelector('.tech-nav-underline');
+  if (activeBtn && underline) {
+    underline.style.left = `${activeBtn.offsetLeft}px`;
+    underline.style.width = `${activeBtn.offsetWidth}px`;
   }
 }
 
