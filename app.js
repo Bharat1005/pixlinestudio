@@ -12,6 +12,7 @@ function getPreferredTheme() {
   return 'dark';
 }
 
+
 function setTheme(theme) {
   const activeTheme = theme === 'light' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', activeTheme);
