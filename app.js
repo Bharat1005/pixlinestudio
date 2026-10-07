@@ -423,3 +423,53 @@ if (nextTestiBtn) {
     setTestimonial(newIdx);
   });
 }
+
+// =========================================================
+// 8. MODERN TECHNOLOGIES STACK TABS
+// =========================================================
+const techTabButtons = document.querySelectorAll('.tech-tab-btn');
+const techPanels = document.querySelectorAll('.tech-panel');
+const techUnderline = document.querySelector('.tech-nav-underline');
+
+function updateTechUnderline() {
+  const activeBtn = document.querySelector('.tech-tab-btn.active');
+  const nav = document.querySelector('.tech-tabs-nav');
+  if (activeBtn && techUnderline && nav) {
+    const btnRect = activeBtn.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+    const left = btnRect.left - navRect.left + nav.scrollLeft;
+    const width = btnRect.width;
+    techUnderline.style.left = `${left}px`;
+    techUnderline.style.width = `${width}px`;
+  }
+}
+
+if (techTabButtons.length > 0) {
+  techTabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tech-tab');
+      
+      techTabButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      
+      techPanels.forEach(panel => {
+        if (panel.id === `panel-${targetTab}`) {
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+      
+      updateTechUnderline();
+    });
+  });
+
+  window.addEventListener('resize', updateTechUnderline);
+  window.addEventListener('load', updateTechUnderline);
+  setTimeout(updateTechUnderline, 200);
+}
